@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Journal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+
+    <header class="navbar">
+        <div class="logo">
+            📘 <span>Study Journal</span>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Dashboard</a>
+            <a href="session.html">New Session</a>
+            <a href="history.html">History</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Welcome -->
+
+        <section class="hero">
+            <div>
+                <h1>Good Morning, Kalyan.</h1>
+                <p>
+                    Stay consistent. Every focused session compounds.
+                </p>
+            </div>
+            <div class="today">
+                <p>Today</p>
+
+                <h2>18 July 2026</h2>
+            </div>
+        </section>
+
+
+
+        <!-- Summary Cards -->
+
+        <section class="summary-grid">
+            <div class="card">
+                <h3>📖 Study</h3>
+                <h1>0 h</h1>
+                <p>Today's study time</p>
+            </div>
+
+            <div class="card">
+                <h3>🧪 Research</h3>
+                <h1>0 h</h1>
+                <p>Today's research time</p>
+            </div>
+
+            <div class="card">
+                <h3>💻 Coding</h3>
+                <h1>0 h</h1>
+                <p>Today's coding time</p>
+            </div>
+
+            <div class="card">
+                <h3>🔥 Streak</h3>
+                <h1>0</h1>
+                <p>Days</p>
+            </div>
+        </section>
+
+
+        <!-- Progress -->
+
+        <section class="two-column">
+            <div class="card">
+                <h2>Today's Goal</h2>
+                <ul>
+                    <li>Study — <strong>0 / 7 hrs</strong></li>
+                    <li>Research — <strong>0 / 3 hrs</strong></li>
+                    <li>Coding — <strong>0 / 2 hrs</strong></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Weekly Summary</h2>
+                <ul>
+                    <li>Total Study — 0 hrs</li>
+                    <li>Total Research — 0 hrs</li>
+                    <li>Total Coding — 0 hrs</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- Recent Sessions -->
+
+        <section class="card">
+            <div class="section-title">
+                <h2>Recent Sessions</h2>
+                <a href="history.html">View All</a>
+            </div>
+            <div class="empty-state">
+                <div class="icon">
+                    📚
+                </div>
+                <h3>No sessions yet</h3>
+                <p>
+                    Start by logging your first study or research session.
+                </p>
+                <a href="session.html" class="button">
+                    + New Session
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Quick Actions -->
+
+        <section class="quick-actions">
+            <a href="session.html" class="action-card">
+                <div class="emoji">➕</div>
+                <h3>Log Session</h3>
+                <p>Add a completed study or research session.</p>
+            </a>
+
+            <a href="history.html" class="action-card">
+                <div class="emoji">📊</div>
+                <h3>View History</h3>
+                <p>Browse all previous sessions.</p>
+            </a>
+
+            <div class="action-card disabled">
+                <div class="emoji">📈</div>
+                <h3>Analytics</h3>
+                <p>Coming in a future milestone.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>
+            Study Journal • Version 1.0
+        </p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
