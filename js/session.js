@@ -108,6 +108,21 @@ function calculateDuration() {
 
 }
 
+/*
+=========================================
+Set Today's Date
+=========================================
+*/
+
+function setTodayDate() {
+
+    const today = new Date();
+
+    const formattedDate = today.toISOString().split("T")[0];
+
+    document.getElementById("date").value = formattedDate;
+
+}
 
 /*
 =========================================
@@ -122,6 +137,8 @@ function initializeForm() {
     populateSelect("activity", DATA.activities);
 
     populateSelect("area", DATA.areas);
+
+    setTodayDate();
 
     document
         .getElementById("startTime")
