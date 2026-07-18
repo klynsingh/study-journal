@@ -24,9 +24,11 @@
         </div>
 
         <nav>
+
             <a href="index.html">Dashboard</a>
             <a href="session.html" class="active">New Session</a>
             <a href="history.html">History</a>
+
         </nav>
 
     </header>
@@ -43,7 +45,9 @@
                 <h1>New Session</h1>
 
                 <p>
-                    Log your study, research, coding, or reading sessions.
+
+                    Record your completed study, research, coding, or reading session.
+
                 </p>
 
             </div>
@@ -51,71 +55,187 @@
         </section>
 
 
-        <!-- Placeholder Card -->
+        <!-- Session Details -->
 
         <section class="card">
 
-            <h2>Coming in Milestone 2</h2>
+            <h2>Session Details</h2>
 
-            <p style="margin-top: 12px; color: var(--muted);">
+            <div class="form-grid">
 
-                This page will contain the session logging form.
+                <div class="form-group">
 
-            </p>
+                    <label for="category">Category</label>
 
-            <br>
+                    <select id="category">
 
-            <ul style="padding-left:20px; color: var(--muted);">
+                        <option>Study</option>
+                        <option>Research</option>
+                        <option>Coding</option>
+                        <option>Reading</option>
+                        <option>Personal</option>
 
-                <li>Select category</li>
-                <li>Choose subject</li>
-                <li>Enter topic</li>
-                <li>Start & End time</li>
-                <li>Automatic duration calculation</li>
-                <li>Notes</li>
-                <li>Save to Local Storage</li>
+                    </select>
 
-            </ul>
-
-        </section>
+                </div>
 
 
-        <!-- Preview Card -->
+                <div class="form-group">
 
-        <section class="card" style="margin-top:30px;">
+                    <label for="activity">Activity</label>
 
-            <h2>Future Preview</h2>
+                    <select id="activity">
 
-            <p style="margin:12px 0 20px; color:var(--muted);">
+                        <option>Lecture</option>
+                        <option>Revision</option>
+                        <option>Problem Solving</option>
+                        <option>Paper Reading</option>
+                        <option>Simulation</option>
+                        <option>Thesis Writing</option>
+                        <option>Coding</option>
 
-                This is how a session will look after implementation.
+                    </select>
 
-            </p>
+                </div>
 
-            <div style="padding:18px; border:1px dashed var(--border); border-radius:12px;">
 
-                <strong>Study</strong><br><br>
+                <div class="form-group">
 
-                Subject:
-                Organometallic Chemistry
-                <br><br>
+                    <label for="subject">Subject / Project</label>
 
-                Topic:
-                18-Electron Rule
-                <br><br>
+                    <select id="subject">
 
-                Time:
-                06:00 → 08:30
-                <br><br>
+                        <option>Organometallic Chemistry</option>
+                        <option>Coordination Chemistry</option>
+                        <option>Physical Chemistry</option>
+                        <option>Excited State Dynamics</option>
+                        <option>CH₃CN Project</option>
+                        <option>Study Journal</option>
+                        <option>Rabindra Business OS</option>
 
-                Duration:
-                2 h 30 min
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="topic">Topic</label>
+
+                    <input
+                        type="text"
+                        id="topic"
+                        placeholder="18-Electron Rule">
+
+                </div>
 
             </div>
 
         </section>
 
+
+
+        <!-- Time Information -->
+
+        <section class="card">
+
+            <h2>Time</h2>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="date">Date</label>
+
+                    <input
+                        type="date"
+                        id="date">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="startTime">Start Time</label>
+
+                    <input
+                        type="time"
+                        id="startTime">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="endTime">End Time</label>
+
+                    <input
+                        type="time"
+                        id="endTime">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="duration">Duration</label>
+
+                    <input
+                        type="text"
+                        id="duration"
+                        value="0 h 0 min"
+                        readonly>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Notes -->
+
+        <section class="card">
+
+            <h2>Notes</h2>
+
+            <div class="form-group">
+
+                <label for="notes">
+
+                    Additional Notes
+
+                </label>
+
+                <textarea
+
+                    id="notes"
+
+                    rows="6"
+
+                    placeholder="Write anything useful about this session..."></textarea>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Save Button -->
+
+        <section class="save-section">
+
+            <button id="saveBtn" class="button">
+
+                💾 Save Session
+
+            </button>
+
+        </section>
+
     </main>
+
 
 
     <footer>
@@ -128,8 +248,10 @@
 
     </footer>
 
-    <script src="js/app.js"></script>
 
+
+    <script src="js/app.js"></script>
+    <script src="js/storage.js"></script>
     <script src="js/session.js"></script>
 
 </body>
