@@ -150,6 +150,85 @@ function initializeForm() {
 
 }
 
+/*
+=========================================
+Generate Unique ID
+=========================================
+*/
+
+function generateSessionId() {
+
+    return crypto.randomUUID();
+
+}
+
+/*
+=========================================
+Duration in Minutes
+=========================================
+*/
+
+function getDurationMinutes() {
+
+    const start = document.getElementById("startTime").value;
+    const end = document.getElementById("endTime").value;
+
+    if (!start || !end) {
+
+        return 0;
+
+    }
+
+    const startDate = new Date(`2000-01-01T${start}`);
+    const endDate = new Date(`2000-01-01T${end}`);
+
+    const difference = endDate - startDate;
+
+    if (difference <= 0) {
+
+        return 0;
+
+    }
+
+    return Math.floor(difference / 60000);
+
+}
+
+/*
+=========================================
+Read Form Data
+=========================================
+*/
+
+function getFormData() {
+
+    return {
+
+        id: generateSessionId(),
+
+        category: document.getElementById("category").value,
+
+        activity: document.getElementById("activity").value,
+
+        area: document.getElementById("area").value,
+
+        topic: document.getElementById("topic").value.trim(),
+
+        date: document.getElementById("date").value,
+
+        startTime: document.getElementById("startTime").value,
+
+        endTime: document.getElementById("endTime").value,
+
+        durationMinutes: getDurationMinutes(),
+
+        notes: document.getElementById("notes").value.trim(),
+
+        createdAt: new Date().toISOString()
+
+    };
+
+}
 
 /*
 =========================================
