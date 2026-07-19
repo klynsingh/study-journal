@@ -90,7 +90,6 @@ function updateMotivation() {
 
 }
 
-
 /*
 =========================================
 Today's Cards
@@ -130,6 +129,32 @@ function updateTodayCards() {
 
 }
 
+/*
+=========================================
+Week's Cards
+=========================================
+*/
+
+function updateWeekCards() {
+
+    const weekSessions = getWeekSessions();
+
+    document.getElementById("weekStudyTime").textContent =
+        formatDuration(
+            getCategoryMinutes(weekSessions, "Study")
+        );
+
+    document.getElementById("weekResearchTime").textContent =
+        formatDuration(
+            getCategoryMinutes(weekSessions, "Research")
+        );
+
+    document.getElementById("weekCodingTime").textContent =
+        formatDuration(
+            getCategoryMinutes(weekSessions, "Coding")
+        );
+
+}
 
 /*
 =========================================
@@ -263,6 +288,8 @@ function initializeDashboard() {
     updateMotivation();
 
     updateTodayCards();
+
+    updateWeekCards();
 
     updateGoals();
 
