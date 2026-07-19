@@ -15,6 +15,12 @@ Format Duration
 
 function formatDuration(durationMinutes) {
 
+    if (typeof durationMinutes !== "number" || isNaN(durationMinutes)) {
+
+        return "0 h 0 min";
+
+    }
+
     const hours = Math.floor(durationMinutes / 60);
 
     const minutes = durationMinutes % 60;
@@ -34,6 +40,12 @@ Format Date
 function formatDate(dateString) {
 
     const date = new Date(dateString);
+
+    if (isNaN(date.getTime())) {
+
+        return "";
+
+    }
 
     return date.toLocaleDateString("en-GB", {
 
@@ -56,9 +68,15 @@ Is Today?
 
 function isToday(dateString) {
 
-    const today = new Date();
-
     const date = new Date(dateString);
+
+    if (isNaN(date.getTime())) {
+
+        return false;
+
+    }
+
+    const today = new Date();
 
     return (
         today.getFullYear() === date.getFullYear() &&
@@ -78,14 +96,20 @@ Convert Minutes to Hours
 
 function minutesToHours(minutes) {
 
+    if (typeof minutes !== "number" || isNaN(minutes)) {
+
+        return "0.0";
+
+    }
+
     return (minutes / 60).toFixed(1);
 
 }
 
 /*
 =========================================
-Converts UTC date to 
-local dates (YYYY-MM-DD)
+Format Date Object
+to YYYY-MM-DD
 =========================================
 */
 
