@@ -73,33 +73,30 @@ Calculate Duration
 =========================================
 */
 
-function calculateDuration() {
-
-    const start = document.getElementById("startTime").value;
-    const end = document.getElementById("endTime").value;
-
-    const durationField = document.getElementById("duration");
+function calculateDurationMinutes(start, end) {
 
     if (!start || !end) {
 
-        durationField.value = "0 h 0 min";
-        return;
+        return 0;
 
     }
 
     const startDate = new Date(`2000-01-01T${start}`);
     const endDate = new Date(`2000-01-01T${end}`);
 
-    let difference = endDate - startDate;
+    const difference = endDate - startDate;
 
     if (difference <= 0) {
 
-        durationField.value = "Invalid";
-        return;
+        return 0;
 
     }
 
-    const totalMinutes = Math.floor(difference / 60000);
+    return Math.floor(difference / 60000);
+
+}
+
+    const totalMinutes = calculateDurationMinutes(start, end);
 
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
@@ -118,7 +115,8 @@ function setTodayDate() {
 
     const today = new Date();
 
-    const formattedDate = today.toISOString().split("T")[0];
+    const formattedDate =
+            formatDateISO(today);
 
     document.getElementById("date").value = formattedDate;
 
@@ -250,6 +248,7 @@ function saveCurrentSession() {
 
     alert("Session saved successfully!");
 
+    window.location.href = "index.html";
 }
 
 /*
