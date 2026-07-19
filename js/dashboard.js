@@ -161,6 +161,91 @@ function updateGoals() {
 
 }
 
+/*
+=========================================
+Weekly Summary
+=========================================
+*/
+
+function updateWeeklySummary() {
+
+    const weekSessions = getWeekSessions();
+
+    const studyHours =
+        (getCategoryMinutes(weekSessions, "Study") / 60).toFixed(1);
+
+    const researchHours =
+        (getCategoryMinutes(weekSessions, "Research") / 60).toFixed(1);
+
+    const codingHours =
+        (getCategoryMinutes(weekSessions, "Coding") / 60).toFixed(1);
+
+
+    document.getElementById("weeklyStudy").textContent =
+        `${studyHours} hrs`;
+
+    document.getElementById("weeklyResearch").textContent =
+        `${researchHours} hrs`;
+
+    document.getElementById("weeklyCoding").textContent =
+        `${codingHours} hrs";
+
+}
+
+/*
+=========================================
+Recent Sessions
+=========================================
+*/
+
+function updateRecentSessions() {
+
+    const container =
+        document.getElementById("recentSessions");
+
+    const sessions =
+        getRecentSessions(5);
+
+    container.innerHTML = "";
+
+
+    if (sessions.length === 0) {
+
+        container.innerHTML =
+            "<p>No sessions recorded yet.</p>";
+
+        return;
+
+    }
+
+
+    sessions.forEach(session => {
+
+        const item = document.createElement("div");
+
+        item.className = "recent-session";
+
+        item.innerHTML = `
+
+            <strong>${session.activity}</strong>
+
+            <span>${session.topic}</span>
+
+            <small>
+
+                ${formatDate(session.date)}
+                •
+                ${formatDuration(session.durationMinutes)}
+
+            </small>
+
+        `;
+
+        container.appendChild(item);
+
+    });
+
+}
 
 /*
 =========================================
@@ -179,6 +264,10 @@ function initializeDashboard() {
     updateTodayCards();
 
     updateGoals();
+
+    updateWeeklySummary();
+
+    updateRecentSessions();
 
 }
 
