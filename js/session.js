@@ -69,7 +69,7 @@ function populateSelect(selectId, items) {
 
 /*
 =========================================
-Calculate Duration
+Calculate Duration (Helper)
 =========================================
 */
 
@@ -96,14 +96,35 @@ function calculateDurationMinutes(start, end) {
 
 }
 
+
+/*
+=========================================
+Calculate Duration (UI)
+=========================================
+*/
+
+function calculateDuration() {
+
+    const start = document.getElementById("startTime").value;
+    const end = document.getElementById("endTime").value;
+
+    const durationField = document.getElementById("duration");
+
     const totalMinutes = calculateDurationMinutes(start, end);
 
-    const hours = Math.floor(totalMinutes / 60);
-    const minutes = totalMinutes % 60;
+    if (totalMinutes === 0) {
 
-    durationField.value = `${hours} h ${minutes} min`;
+        durationField.value =
+            (start && end) ? "Invalid" : "0 h 0 min";
+
+        return;
+
+    }
+
+    durationField.value = formatDuration(totalMinutes);
 
 }
+
 
 /*
 =========================================
@@ -115,12 +136,11 @@ function setTodayDate() {
 
     const today = new Date();
 
-    const formattedDate =
-            formatDateISO(today);
-
-    document.getElementById("date").value = formattedDate;
+    document.getElementById("date").value =
+        formatDateISO(today);
 
 }
+
 
 /*
 =========================================
@@ -137,7 +157,7 @@ function initializeForm() {
     populateSelect("area", DATA.areas);
 
     setTodayDate();
-    
+
     document
         .getElementById("startTime")
         .addEventListener("change", calculateDuration);
@@ -145,16 +165,17 @@ function initializeForm() {
     document
         .getElementById("endTime")
         .addEventListener("change", calculateDuration);
-    
+
     document
         .getElementById("saveBtn")
         .addEventListener("click", saveCurrentSession);
 
 }
 
+
 /*
 =========================================
-Generate Unique ID
+Generate Session ID
 =========================================
 */
 
@@ -164,6 +185,7 @@ function generateSessionId() {
 
 }
 
+
 /*
 =========================================
 Duration in Minutes
@@ -172,29 +194,16 @@ Duration in Minutes
 
 function getDurationMinutes() {
 
-    const start = document.getElementById("startTime").value;
-    const end = document.getElementById("endTime").value;
+    const start =
+        document.getElementById("startTime").value;
 
-    if (!start || !end) {
+    const end =
+        document.getElementById("endTime").value;
 
-        return 0;
-
-    }
-
-    const startDate = new Date(`2000-01-01T${start}`);
-    const endDate = new Date(`2000-01-01T${end}`);
-
-    const difference = endDate - startDate;
-
-    if (difference <= 0) {
-
-        return 0;
-
-    }
-
-    return Math.floor(difference / 60000);
+    return calculateDurationMinutes(start, end);
 
 }
+
 
 /*
 =========================================
@@ -232,6 +241,7 @@ function getFormData() {
 
 }
 
+
 /*
 =========================================
 Save Current Session
@@ -242,6 +252,22 @@ function saveCurrentSession() {
 
     const session = getFormData();
 
+    if (!session.topic) {
+
+        alert("Please enter a topic.");
+
+        return;
+
+    }
+
+    if (session.durationMinutes === 0) {
+
+        alert("Please enter a valid duration.");
+
+        return;
+
+    }
+
     saveSession(session);
 
     console.log("Saved:", session);
@@ -249,7 +275,9 @@ function saveCurrentSession() {
     alert("Session saved successfully!");
 
     window.location.href = "index.html";
+
 }
+
 
 /*
 =========================================
