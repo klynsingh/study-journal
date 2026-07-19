@@ -41,12 +41,19 @@ function getWeekSessions() {
 
     firstDayOfWeek.setDate(firstDayOfWeek.getDate() - diff);
 
+    const endOfToday = new Date(today);
+
+    endOfToday.setHours(23, 59, 59, 999);
+
     return sessions.filter(session => {
 
         const sessionDate = new Date(session.date);
         sessionDate.setHours(0, 0, 0, 0);
 
-        return sessionDate >= firstDayOfWeek;
+        return (
+        sessionDate >= firstDayOfWeek &&
+        sessionDate <= endOfToday
+        );    
 
     });
 
@@ -62,7 +69,10 @@ function getTotalMinutes(sessions) {
 
     return sessions.reduce((total, session) => {
 
-        return total + session.durationMinutes;
+    const minutes =
+        Number(session.durationMinutes) || 0;
+
+    return total + minutes;
 
     }, 0);
 
@@ -139,8 +149,7 @@ function getCurrentStreak() {
 
     while (true) {
 
-        const dateString =
-            currentDate.toISOString().split("T")[0];
+        const dateString = formatDateISO(currentDate);
 
         if (uniqueDates.has(dateString)) {
 
