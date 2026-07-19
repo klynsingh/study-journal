@@ -106,18 +106,20 @@ body{
 }
 
 
-.logo{
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-    display:flex;
+    text-decoration: none;
+    color: inherit;
 
-    align-items:center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
 
-    gap:10px;
-
-    font-size:22px;
-
-    font-weight:700;
-
+.logo:hover {
+    color: var(--primary-color);
 }
 
 
