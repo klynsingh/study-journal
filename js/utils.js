@@ -116,12 +116,45 @@ function sortSessionsByDateTime(sessions) {
 
     return [...sessions].sort((a, b) => {
 
-        const dateA = new Date(`${a.date}T${a.startTime}`);
-        const dateB = new Date(`${b.date}T${b.startTime}`);
+        const sessionA =
+            new Date(`${a.date}T${a.endTime}`);
 
-        return dateB - dateA;
+        const sessionB =
+            new Date(`${b.date}T${b.endTime}`);
+
+        return sessionB - sessionA;
 
     });
+
+}
+
+/*
+=========================================
+Format Time Range
+=========================================
+*/
+
+function formatTimeRange(startTime, endTime) {
+
+    function format(time) {
+
+        const [hour, minute] = time.split(":");
+
+        const date = new Date();
+
+        date.setHours(hour, minute);
+
+        return date.toLocaleTimeString([], {
+
+            hour: "numeric",
+
+            minute: "2-digit"
+
+        });
+
+    }
+
+    return `${format(startTime)} – ${format(endTime)}`;
 
 }
 
