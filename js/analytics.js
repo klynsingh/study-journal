@@ -20,6 +20,37 @@ function getTodaySessions() {
 
 }
 
+/*
+=========================================
+Get This Week's Sessions
+=========================================
+*/
+
+function getWeekSessions() {
+
+    const sessions = getSessions();
+
+    const today = new Date();
+
+    const firstDayOfWeek = new Date(today);
+    firstDayOfWeek.setHours(0, 0, 0, 0);
+
+    // Monday = first day of week
+    const day = firstDayOfWeek.getDay();
+    const diff = day === 0 ? 6 : day - 1;
+
+    firstDayOfWeek.setDate(firstDayOfWeek.getDate() - diff);
+
+    return sessions.filter(session => {
+
+        const sessionDate = new Date(session.date);
+        sessionDate.setHours(0, 0, 0, 0);
+
+        return sessionDate >= firstDayOfWeek;
+
+    });
+
+}
 
 /*
 =========================================
