@@ -107,3 +107,57 @@ function getRecentSessions(limit = 5) {
         .slice(0, limit);
 
 }
+
+/*
+=========================================
+Current Study Streak
+=========================================
+*/
+
+function getCurrentStreak() {
+
+    const sessions = getSessions();
+
+    if (sessions.length === 0) {
+
+        return 0;
+
+    }
+
+    // Unique study dates
+    const uniqueDates = new Set();
+
+    sessions.forEach(session => {
+
+        uniqueDates.add(session.date);
+
+    });
+
+    let streak = 0;
+
+    let currentDate = new Date();
+
+    while (true) {
+
+        const dateString =
+            currentDate.toISOString().split("T")[0];
+
+        if (uniqueDates.has(dateString)) {
+
+            streak++;
+
+            currentDate.setDate(currentDate.getDate() - 1);
+
+        }
+
+        else {
+
+            break;
+
+        }
+
+    }
+
+    return streak;
+
+}
