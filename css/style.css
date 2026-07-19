@@ -125,7 +125,7 @@ body{
 }
 
 .logo:hover {
-    color: var(--primary-color);
+    color: var(--primary);
 }
 
 
@@ -178,7 +178,7 @@ nav a.active{
 
     align-items:center;
 
-    margin-bottom:35px;
+    margin-bottom: var(--space-lg);
 
 }
 
@@ -226,7 +226,7 @@ nav a.active{
 
     border-radius:var(--radius);
 
-    padding:24px;
+    padding: var(--space-md);
 
     box-shadow:var(--shadow);
 
@@ -255,7 +255,7 @@ nav a.active{
 
 .card h2{
 
-    margin-bottom:18px;
+    margin-bottom: var(--space-md);
 
 }
 
@@ -277,7 +277,9 @@ nav a.active{
 
 }
 
-
+.card + .card {
+    margin-top: var(--space-lg);
+}
 
 /* ===========================
    Two Columns
@@ -572,9 +574,8 @@ footer{
 
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
-    gap: 24px;
-
-    margin-top: 24px;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
 
 }
 
@@ -659,7 +660,7 @@ footer{
 
 .save-section {
 
-    margin-top: 32px;
+    margin-top: var(--space-lg);
 
     display: flex;
 
