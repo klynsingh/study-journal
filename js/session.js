@@ -141,6 +141,10 @@ function initializeForm() {
     setTodayDate();
 
     document
+        .getElementById("saveBtn")
+        .addEventListener("click", saveCurrentSession);
+    
+    document
         .getElementById("startTime")
         .addEventListener("change", calculateDuration);
 
