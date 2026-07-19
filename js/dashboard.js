@@ -125,7 +125,8 @@ function updateTodayCards() {
     Placeholder for now
     */
 
-    document.getElementById("streakDays").textContent = "-";
+    document.getElementById("streakDays").textContent =
+    getCurrentStreak();
 
 }
 
