@@ -188,7 +188,7 @@ function updateWeeklySummary() {
         `${researchHours} hrs`;
 
     document.getElementById("weeklyCoding").textContent =
-        `${codingHours} hrs";
+        `${codingHours} hrs`;
 
 }
 
