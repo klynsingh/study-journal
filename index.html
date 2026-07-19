@@ -27,15 +27,14 @@
 
         <section class="hero">
             <div>
-                <h1>Good Morning, Kalyan.</h1>
-                <p>
-                    Stay consistent. Every focused session compounds.
+                <h1 id="greeting">Welcome</h1>
+                <p id="motivation">
+                    Stay consistent.
                 </p>
             </div>
             <div class="today">
-                <p>Today</p>
-
-                <h2>18 July 2026</h2>
+                <span>Today</span>
+                <h2 id="todayDate">--</h2>
             </div>
         </section>
 
@@ -46,25 +45,25 @@
         <section class="summary-grid">
             <div class="card">
                 <h3>📖 Study</h3>
-                <h1>0 h</h1>
+                <h2 id="studyToday">0 h</h2>
                 <p>Today's study time</p>
             </div>
 
             <div class="card">
                 <h3>🧪 Research</h3>
-                <h1>0 h</h1>
+                <h2 id="researchToday">0 h</h2>
                 <p>Today's research time</p>
             </div>
 
             <div class="card">
                 <h3>💻 Coding</h3>
-                <h1>0 h</h1>
+                <h2 id="codingToday">0 h</h2>
                 <p>Today's coding time</p>
             </div>
 
             <div class="card">
                 <h3>🔥 Streak</h3>
-                <h1>0</h1>
+                <h2 id="streakDays">0</h2>
                 <p>Days</p>
             </div>
         </section>
@@ -76,41 +75,29 @@
             <div class="card">
                 <h2>Today's Goal</h2>
                 <ul>
-                    <li>Study — <strong>0 / 7 hrs</strong></li>
-                    <li>Research — <strong>0 / 3 hrs</strong></li>
-                    <li>Coding — <strong>0 / 2 hrs</strong></li>
+                    <li>Study —<strong id="studyGoal">0 / 7 hrs</strong></li>
+                    <li>Research — <strong id="researchGoal">0 / 3 hrs</strong></li>
+                    <li>Coding — <strong id="codingGoal">0 / 2 hrs</strong></li>
                 </ul>
             </div>
 
             <div class="card">
                 <h2>Weekly Summary</h2>
                 <ul>
-                    <li>Total Study — 0 hrs</li>
-                    <li>Total Research — 0 hrs</li>
-                    <li>Total Coding — 0 hrs</li>
+                    <li>Total Study <strong id="weeklyStudy">0 hrs</strong></li>
+                    <li>Total Research <strong id="weeklyResearch">0 hrs</strong></li>
+                    <li>Total Coding <strong id="weeklyCoding">0 hrs</strong></li>
                 </ul>
             </div>
         </section>
 
-
         <!-- Recent Sessions -->
 
         <section class="card">
-            <div class="section-title">
-                <h2>Recent Sessions</h2>
-                <a href="history.html">View All</a>
-            </div>
-            <div class="empty-state">
-                <div class="icon">
-                    📚
-                </div>
-                <h3>No sessions yet</h3>
-                <p>
-                    Start by logging your first study or research session.
+            <div id="recentSessions">
+                <p class="empty-state">
+                    No recent sessions.
                 </p>
-                <a href="session.html" class="button">
-                    + New Session
-                </a>
             </div>
         </section>
 
