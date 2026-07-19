@@ -108,12 +108,7 @@ function getRecentSessions(limit = 5) {
 
     const sessions = getSessions();
 
-    return [...sessions]
-        .sort((a, b) => {
-
-            return new Date(b.createdAt) - new Date(a.createdAt);
-
-        })
+    return sortSessionsByDateTime(sessions)
         .slice(0, limit);
 
 }
