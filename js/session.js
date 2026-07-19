@@ -236,6 +236,24 @@ function getFormData() {
 
 /*
 =========================================
+Save Current Session
+=========================================
+*/
+
+function saveCurrentSession() {
+
+    const session = getFormData();
+
+    saveSession(session);
+
+    console.log("Saved:", session);
+
+    alert("Session saved successfully!");
+
+}
+
+/*
+=========================================
 Page Load
 =========================================
 */
