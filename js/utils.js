@@ -108,6 +108,25 @@ function minutesToHours(minutes) {
 
 /*
 =========================================
+Sort Sessions by Date & Time
+=========================================
+*/
+
+function sortSessionsByDateTime(sessions) {
+
+    return [...sessions].sort((a, b) => {
+
+        const dateA = new Date(`${a.date}T${a.startTime}`);
+        const dateB = new Date(`${b.date}T${b.startTime}`);
+
+        return dateB - dateA;
+
+    });
+
+}
+
+/*
+=========================================
 Format Date Object
 to YYYY-MM-DD
 =========================================
