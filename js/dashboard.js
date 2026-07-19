@@ -261,6 +261,11 @@ function updateRecentSessions() {
 
                 ${formatDate(session.date)}
                 •
+                ${formatTimeRange(
+                    session.startTime,
+                    session.endTime
+                )}
+                •
                 ${formatDuration(session.durationMinutes)}
 
             </small>
