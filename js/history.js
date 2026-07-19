@@ -8,23 +8,6 @@ History Module
 
 /*
 =========================================
-Format Duration
-=========================================
-*/
-
-function formatDuration(durationMinutes) {
-
-    const hours = Math.floor(durationMinutes / 60);
-
-    const minutes = durationMinutes % 60;
-
-    return `${hours} h ${minutes} min`;
-
-}
-
-
-/*
-=========================================
 Render History Table
 =========================================
 */
@@ -67,7 +50,7 @@ function renderHistory() {
         const row = document.createElement("tr");
 
         row.innerHTML = `
-            <td>${session.date}</td>
+            <td>${formatDate(session.date)}</td>
             <td>${session.category}</td>
             <td>${session.activity}</td>
             <td>${session.area}</td>
