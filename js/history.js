@@ -16,6 +16,12 @@ function renderHistory() {
 
     const sessions = getSessions();
 
+    const sortedSessions = [...sessions].sort((a, b) => {
+
+        return new Date(b.createdAt) - new Date(a.createdAt);
+
+    });
+
     const tableBody = document.getElementById("historyTableBody");
 
     const emptyState = document.getElementById("emptyState");
@@ -43,9 +49,9 @@ function renderHistory() {
 
     tableContainer.style.display = "block";
 
-
+    
     // Newest first
-    sessions.reverse().forEach(session => {
+    sortedSessions.forEach(session => {
 
         const row = document.createElement("tr");
 
@@ -68,7 +74,8 @@ function renderHistory() {
         tableBody.appendChild(row);
 
     });
-
+    
+    
     attachDeleteEvents();
 }
 
