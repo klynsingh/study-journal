@@ -139,10 +139,6 @@ function initializeForm() {
     populateSelect("area", DATA.areas);
 
     setTodayDate();
-
-    document
-        .getElementById("saveBtn")
-        .addEventListener("click", saveCurrentSession);
     
     document
         .getElementById("startTime")
@@ -151,6 +147,10 @@ function initializeForm() {
     document
         .getElementById("endTime")
         .addEventListener("change", calculateDuration);
+    
+    document
+        .getElementById("saveBtn")
+        .addEventListener("click", saveCurrentSession);
 
 }
 
