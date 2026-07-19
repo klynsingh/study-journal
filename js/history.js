@@ -14,13 +14,10 @@ Render History Table
 
 function renderHistory() {
 
-    const sessions = getSessions();
+   const sessions = getSessions();
 
-    const sortedSessions = [...sessions].sort((a, b) => {
-
-        return new Date(b.createdAt) - new Date(a.createdAt);
-
-    });
+    const sortedSessions =
+        sortSessionsByDateTime(sessions);
 
     const tableBody = document.getElementById("historyTableBody");
 
