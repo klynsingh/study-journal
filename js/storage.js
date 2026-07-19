@@ -41,19 +41,37 @@ function getSessions() {
 Save Session
 =========================================
 */
+
 function saveSession(session) {
+
+    // Validate input
+    if (!session || typeof session !== "object") {
+
+        console.error("Invalid session.");
+
+        return;
+
+    }
 
     const sessions = getSessions();
 
     sessions.push(session);
 
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(sessions)
-    );
+    // Save to Local Storage
+    try {
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(sessions)
+        );
+
+    } catch (error) {
+
+        console.error("Unable to save session:", error);
+
+    }
 
 }
-
 
 /*
 =========================================
@@ -66,10 +84,18 @@ function deleteSession(id) {
 
     const updatedSessions = sessions.filter(session => session.id !== id);
 
+    try {
+
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(updatedSessions)
     );
+
+    } catch (error) {
+
+        console.error("Unable to delete session:", error);
+
+    }
 
 }
 
@@ -81,7 +107,15 @@ Clear All Sessions
 */
 function clearSessions() {
 
+    try {
+
     localStorage.removeItem(STORAGE_KEY);
+
+    } catch (error) {
+
+    console.error("Unable to clear sessions:", error);
+
+    }
 
 }
 
