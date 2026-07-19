@@ -53,7 +53,16 @@ function renderHistory() {
         const row = document.createElement("tr");
 
         row.innerHTML = `
-            <td>${formatDate(session.date)}</td>
+            <td>
+                ${formatDate(session.date)}
+                <br>
+                <small>
+                    ${formatTimeRange(
+                        session.startTime,
+                        session.endTime
+                    )}
+                </small>
+            </td>
             <td>${session.category}</td>
             <td>${session.activity}</td>
             <td>${session.area}</td>
