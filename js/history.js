@@ -74,7 +74,9 @@ function renderHistory() {
             <td>${session.topic || "-"}</td>
             <td>${formatDuration(session.durationMinutes)}</td>
             <td>
-                <button class="button delete-btn">
+                <button
+                    class="button delete-btn"
+                    data-id="${session.id}">
                     Delete
                 </button>
             </td>
@@ -86,6 +88,39 @@ function renderHistory() {
 
 }
 
+/*
+=========================================
+Attach Delete Events
+=========================================
+*/
+
+function attachDeleteEvents() {
+
+    const buttons = document.querySelectorAll(".delete-btn");
+
+    buttons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const confirmed = confirm(
+                "Are you sure you want to delete this session?"
+            );
+
+            if (!confirmed) {
+                return;
+            }
+
+            const sessionId = button.dataset.id;
+
+            deleteSession(sessionId);
+
+            renderHistory();
+
+        });
+
+    });
+
+}
 
 /*
 =========================================
