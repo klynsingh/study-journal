@@ -788,3 +788,42 @@ tbody tr:hover {
 
 }
 
+/*
+=========================================
+Recent Sessions
+=========================================
+*/
+
+.recent-session {
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+.recent-session strong {
+
+    display: block;
+
+    font-size: 16px;
+
+    margin-bottom: 4px;
+
+}
+
+.recent-session span {
+
+    display: block;
+
+    color: #6b7280;
+
+    margin-bottom: 6px;
+
+}
+
+.recent-session small {
+
+    color: #9ca3af;
+
+}
