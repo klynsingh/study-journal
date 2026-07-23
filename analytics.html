@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | Study Journal</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            📘 Study Journal
+        </a>
+
+        <nav class="nav">
+
+            <a href="index.html">Dashboard</a>
+
+            <a href="new-session.html">New Session</a>
+
+            <a href="history.html">History</a>
+
+            <a href="analytics.html" class="active">Analytics</a>
+
+        </nav>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Page Header -->
+
+        <section class="page-header">
+
+            <h1>Analytics</h1>
+
+            <p>
+                Understand your study habits and track your progress over time.
+            </p>
+
+        </section>
+
+
+        <!-- Overall Statistics -->
+
+        <section>
+
+            <h2>Overall Statistics</h2>
+
+            <div class="stats-grid">
+
+                <div class="card stat-card">
+                    <h3>Total Sessions</h3>
+                    <p id="total-sessions"></p>
+                </div>
+
+                <div class="card stat-card">
+                    <h3>Total Study Time</h3>
+                    <p id="total-study-time"></p>
+                </div>
+
+                <div class="card stat-card">
+                    <h3>Study Days</h3>
+                    <p id="study-days"></p>
+                </div>
+
+                <div class="card stat-card">
+                    <h3>Average Session</h3>
+                    <p id="average-session"></p>
+                </div>
+
+                <div class="card stat-card">
+                    <h3>Average Sessions / Day</h3>
+                    <p id="average-sessions-day"></p>
+                </div>
+
+                <div class="card stat-card">
+                    <h3>Average Study / Day</h3>
+                    <p id="average-study-day"></p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Productivity -->
+
+        <section>
+
+            <h2>Productivity</h2>
+
+            <div class="stats-grid">
+
+                <div class="card">
+                    <h3>Most Productive Day</h3>
+                    <p id="productive-day"></p>
+                </div>
+
+                <div class="card">
+                    <h3>Most Productive Week</h3>
+                    <p id="productive-week"></p>
+                </div>
+
+                <div class="card">
+                    <h3>Top Category</h3>
+                    <p id="top-category"></p>
+                </div>
+
+                <div class="card">
+                    <h3>Top Area</h3>
+                    <p id="top-area"></p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Records -->
+
+        <section>
+
+            <h2>Records</h2>
+
+            <div class="stats-grid">
+
+                <div class="card">
+                    <h3>Longest Session</h3>
+                    <p id="longest-session"></p>
+                </div>
+
+                <div class="card">
+                    <h3>Shortest Session</h3>
+                    <p id="shortest-session"></p>
+                </div>
+
+                <div class="card">
+                    <h3>Most Active Day</h3>
+                    <p id="most-active-day"></p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Current Progress -->
+
+        <section>
+
+            <h2>Current Progress</h2>
+
+            <div class="stats-grid">
+
+                <div class="card">
+
+                    <h3>This Month</h3>
+
+                    <p id="month-sessions"></p>
+
+                    <p id="month-minutes"></p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>This Year</h3>
+
+                    <p id="year-sessions"></p>
+
+                    <p id="year-minutes"></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Distribution -->
+
+        <section>
+
+            <h2>Distribution</h2>
+
+            <div class="stats-grid">
+
+                <div class="card">
+
+                    <h3>Category</h3>
+
+                    <table id="category-distribution"></table>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Activity</h3>
+
+                    <table id="activity-distribution"></table>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Area</h3>
+
+                    <table id="area-distribution"></table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="js/pages/analytics-page.js"></script>
+
+</body>
+</html>
