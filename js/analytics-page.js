@@ -1,37 +1,3 @@
-import {
-    getTotalSessions,
-    getTotalStudyMinutes,
-    getAverageSessionDuration,
-    getStudyDaysCount,
-    getAverageSessionsPerDay,
-    getAverageStudyMinutesPerDay,
-
-    getMostProductiveDay,
-    getMostProductiveWeek,
-    getMostProductiveCategory,
-    getMostProductiveArea,
-
-    getLongestSession,
-    getShortestSession,
-    getMostActiveStudyDay,
-
-    getMonthSessions,
-    getYearSessions,
-    getMonthlyStudyMinutes,
-    getYearlyStudyMinutes,
-
-    getCategoryDistribution,
-    getActivityDistribution,
-    getAreaDistribution
-
-} from "../analytics.js";
-
-import {
-    formatDuration
-} from "../utils.js";
-
-
-
 // Overall Statistics
 
 const totalSessionsElement =
@@ -244,32 +210,6 @@ const activityDistributionElement =
 
 const areaDistributionElement =
     document.getElementById("area-distribution");
-
-
-
-function renderOverallStatistics() {
-
-    totalSessionsElement.textContent =
-        getTotalSessions();
-
-    totalStudyTimeElement.textContent =
-        formatDuration(getTotalStudyMinutes());
-
-    studyDaysElement.textContent =
-        getStudyDaysCount();
-
-    averageSessionElement.textContent =
-        formatDuration(getAverageSessionDuration());
-
-    averageSessionsDayElement.textContent =
-        getAverageSessionsPerDay();
-
-    averageStudyDayElement.textContent =
-        formatDuration(getAverageStudyMinutesPerDay());
-
-}
-
-
 
 
 function initializePage() {

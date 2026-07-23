@@ -799,4 +799,3 @@ function getAverageStudyHoursPerWeek() {
     return Math.round(totalMinutes / weeks.length);
 
 }
-
