@@ -165,3 +165,108 @@ function getCurrentStreak() {
     return streak;
 
 }
+
+
+/*
+=========================================
+Analytics
+=========================================
+*/
+
+
+/**
+ * Returns the total number of recorded sessions.
+ *
+ * @returns {number}
+ */
+function getTotalSessions() {
+
+    const sessions = getSessions();
+
+    return sessions.length;
+
+}
+
+
+/**
+ * Returns the total study time across all sessions in minutes.
+ *
+ * @returns {number}
+ */
+function getTotalStudyMinutes() {
+
+    const sessions = getSessions();
+
+    return sessions.reduce((total, session) => {
+
+        return total + session.durationMinutes;
+
+    }, 0);
+
+}
+
+
+/**
+ * Returns the average duration of a study session in minutes.
+ *
+ * @returns {number}
+ */
+function getAverageSessionDuration() {
+
+    const totalSessions = getTotalSessions();
+
+    if (totalSessions === 0) {
+        return 0;
+    }
+
+    return Math.round(getTotalStudyMinutes() / totalSessions);
+
+}
+
+
+/**
+ * Returns the longest recorded study session.
+ *
+ * @returns {Object|null}
+ */
+function getLongestSession() {
+
+    const sessions = getSessions();
+
+    if (sessions.length === 0) {
+        return null;
+    }
+
+    return sessions.reduce((longest, session) => {
+
+        return session.durationMinutes > longest.durationMinutes
+            ? session
+            : longest;
+
+    });
+
+}
+
+
+/**
+ * Returns the shortest recorded study session.
+ *
+ * @returns {Object|null}
+ */
+function getShortestSession() {
+
+    const sessions = getSessions();
+
+    if (sessions.length === 0) {
+        return null;
+    }
+
+    return sessions.reduce((shortest, session) => {
+
+        return session.durationMinutes < shortest.durationMinutes
+            ? session
+            : shortest;
+
+    });
+
+}
